@@ -1,5 +1,6 @@
 import { NewsArticle } from '@/models/NewsArticle'
 import type { Metadata } from 'next'
+import NewsArticleEntry from './components/NewsArticleEntry'
 
 // Metadata for this page.
 export const metadata: Metadata ={ 
@@ -7,13 +8,12 @@ export const metadata: Metadata ={
   description: 'home page'
 }
 
-
 export default async function BreakingNewsPage() {
   // Fetch from the API
   const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`, {
-    cache:'no-cache',
+    // cache:'no-cache',
     next: {
-      tags: ["articles"]
+      tags: ["newsArticles"]
     }
   })
 
@@ -33,11 +33,10 @@ export default async function BreakingNewsPage() {
         {newsArticles.map((article) => {
           return(
             <>
-              <h2>{article.title}</h2>
-              {article.author}
-              <br/>
-              <br/>
-              <br/>
+              <NewsArticleEntry article={article}/>
+              <br />
+              <br />
+              <br />
             </>
           )
         })}
