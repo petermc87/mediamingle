@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Container } from 'react-bootstrap'
+import Head from 'next/head'
 import "bootstrap/dist/css/bootstrap.css"
 import Script from 'next/script'
 
@@ -18,8 +19,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html suppressHydrationWarning={true} lang="en">
-      <head>
+    <>
+      <html suppressHydrationWarning={true} lang="en">
+      <Head>
         {/* Bootstrap css CDN link */}
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -27,7 +29,7 @@ export default function RootLayout({
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
           crossOrigin="anonymous"
         />
-      </head>
+      </Head>
       <body className={inter.className}>{children}</body>
         {/* bootstrap JavaScript CDN link */}      
       <Script
@@ -42,5 +44,7 @@ export default function RootLayout({
         crossOrigin="anonymous"
       />
     </html>
+    </>
+
   )
 }
