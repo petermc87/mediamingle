@@ -1,6 +1,7 @@
 import { NewsArticle } from '@/models/NewsArticle'
 import type { Metadata } from 'next'
 import NewsArticleEntry from './components/NewsArticleEntry'
+import { Container } from 'react-bootstrap'
 
 // Metadata for this page.
 export const metadata: Metadata ={ 
@@ -33,6 +34,7 @@ export default async function BreakingNewsPage() {
         {newsArticles.map((article) => {
           return(
             <>
+
               <NewsArticleEntry article={article}/>
               <br />
               <br />

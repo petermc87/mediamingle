@@ -1,5 +1,8 @@
+"use client"
+
 import { NewsArticle } from "@/models/NewsArticle";
 import Image from "next/image";
+import { Card } from "react-bootstrap";
 
 // Create an interface that inherits the newsArticle prop types for the article key.
 interface NewsArticleEntry{
@@ -17,13 +20,18 @@ export default function NewsArticleEntry({article: { title, description, author,
     }
 
     return (
-        <>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            {author}
-            <br/>
-            visit: {url}
-        </>
+        <a href={url}>
+            <Card className="h-100">
+                <Card.Img
+                    variant="top"
+                    src={urlToImage}
+                />
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>{description}</Card.Text>
+                </Card.Body>
+            </Card>
+        </a>
     )
 
 
