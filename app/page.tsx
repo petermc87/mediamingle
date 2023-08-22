@@ -1,7 +1,7 @@
 import { NewsArticle } from '@/models/NewsArticle'
 import type { Metadata } from 'next'
-import NewsArticleEntry from './components/NewsArticleEntry'
-import { Container } from 'react-bootstrap'
+// import NewsArticleEntry from './components/NewsArticleEntry'
+import NewsArticleGrid from './components/NewsArticlesGrid'
 
 // Metadata for this page.
 export const metadata: Metadata ={ 
@@ -12,7 +12,7 @@ export const metadata: Metadata ={
 export default async function BreakingNewsPage() {
   // Fetch from the API
   const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`, {
-    // cache:'no-cache',
+    cache:'no-cache',
     next: {
       tags: ["newsArticles"]
     }
@@ -21,7 +21,7 @@ export default async function BreakingNewsPage() {
   // Store the json data.
   const data = await response.json()
 
-  // Assigning the data to the types and making the full data fetch an array type using [].
+  // Assigning the data to the imported types and making the full data fetch an array type using [].
   const newsArticles: NewsArticle[] = data.articles
 
   return (
@@ -31,17 +31,7 @@ export default async function BreakingNewsPage() {
         <br/>
         <br/>
         <br/>
-        {newsArticles.map((article) => {
-          return(
-            <>
-
-              <NewsArticleEntry article={article}/>
-              <br />
-              <br />
-              <br />
-            </>
-          )
-        })}
+        <NewsArticleGrid articles={newsArticles}/>
       </main>
     </> 
   )
