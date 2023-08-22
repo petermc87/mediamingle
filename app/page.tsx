@@ -11,7 +11,7 @@ export const metadata: Metadata ={
 
 export default async function BreakingNewsPage() {
   // Fetch from the API
-  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`, {
+  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEXT_PUBLIC_KEY}`, {
     cache:'no-cache',
     next: {
       tags: ["newsArticles"]
