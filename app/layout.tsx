@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap'
 import Head from 'next/head'
 import "bootstrap/dist/css/bootstrap.css"
 import Script from 'next/script'
+import { Component } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -1,11 +1,12 @@
 "use client"
-
+import styles from '../page.module.css'
 import newsSearch from "@/actions/searchNews"
 import { NewsArticle, NewsResponse } from "@/models/NewsArticle"
 import { FormEvent, useState } from "react"
-import { Form, Button, Spinner, Row, Col } from "react-bootstrap"
+import { Form, Button, Spinner, Row, Col, Alert } from "react-bootstrap"
 import NewsArticleGrid from "../components/NewsArticlesGrid"
 import NewsArticleEntry from "../components/NewsArticleEntry"
+import Head from "next/head"
 
 
 export default function SearchWebPage(){
@@ -42,47 +43,49 @@ export default function SearchWebPage(){
     }
 
     return (
-        <main>
-            <h1>Search News</h1>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className='mb-3' controlId="search-input">
-                    <Form.Label>Search query</Form.Label>
-                    <Form.Control
-                        name='searchquery'
-                        placeholder="E.g. politics, sports, ..."
-                    />
-                </Form.Group>
-                <Button type="submit" className="mb-3" disabled={isSearching}>{isSearching ? "Searching..." : "Search"}</Button>
-            </Form>
-            {/* {isSearchingError? "Error, please try again": ''} */}
-            {/* {searchResults ? searchResults.map((result) => {
-                return (
-                    <div>{result.title}</div>
-                )
-            }): ''} */}
-            <div className="d-flex flex-colimn align-items-center">
-                {isSearching && <Spinner animation="border"/>}
-                {isSearchingError && <p>Oh no! Something went wrong :-(. Please try again</p>}
-                {searchResults?.length === 0 && <p>Nothing found. Please try again</p>}
-                {/* {searchResults && <NewsArticleGrid articles={search}/>} */}
-                <>
-                    {searchResults ?
-                        <>            
-                            <Row xs={1} sm={2} x1={3} className="g-4">
-                                {searchResults.map((article) => {
-                                    return (
-                                        <Col key={article.url}>
-                                            <NewsArticleEntry article={article}/>
-                                        </Col>
-                                    )
-                                }
-                                )}
-                            </Row>
-                        </>
-                    : ''}
-                </>
-            </div>
-
-        </main>
+        <>
+            <Head>
+                <title key='title'>Media Mingle - Search News!</title>
+            </Head>
+            <main className={styles.homePage}>
+                <h1>Search News</h1>
+                <Alert>
+                    This page uses <strong>client-side data fetching</strong> to show fresh data for every search.
+                    Requests are handled by our backend via <strong>API routes</strong>
+                </Alert>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className='mb-3' controlId="search-input">
+                        <Form.Label>Search query</Form.Label>
+                        <Form.Control
+                            name='searchquery'
+                            placeholder="E.g. politics, sports, ..."
+                        />
+                    </Form.Group>
+                    <Button type="submit" className="mb-3" disabled={isSearching}>{isSearching ? "Searching..." : "Search"}</Button>
+                </Form>
+                <div className="d-flex flex-colimn align-items-center">
+                    {isSearching && <Spinner animation="border"/>}
+                    {isSearchingError && <p>Oh no! Something went wrong :-(. Please try again</p>}
+                    {searchResults?.length === 0 && <p>Nothing found. Please try again</p>}
+                    {/* {searchResults && <NewsArticleGrid articles={search}/>} */}
+                    <>
+                        {searchResults ?
+                            <>            
+                                <Row xs={1} sm={2} xl={4} xxl={4} className="g-4">
+                                    {searchResults.map((article) => {
+                                        return (
+                                            <Col key={article.url}>
+                                                <NewsArticleEntry article={article}/>
+                                            </Col>
+                                        )
+                                    }
+                                    )}
+                                </Row>
+                            </>
+                        : ''}
+                    </>
+                </div>
+            </main>
+        </>
     )
 }

@@ -1,7 +1,9 @@
+import styles from './page.module.css'
 import { NewsArticle } from '@/models/NewsArticle'
 import type { Metadata } from 'next'
 // import NewsArticleEntry from './components/NewsArticleEntry'
 import NewsArticleGrid from './components/NewsArticlesGrid'
+import { Container } from 'react-bootstrap'
 
 // Metadata for this page.
 export const metadata: Metadata ={ 
@@ -26,13 +28,12 @@ export default async function BreakingNewsPage() {
 
   return (
     <>
-      <main>
+      <main className={styles.homePage}>
         <h1>Breaking News</h1>
-          <br/>
-          <br/>
           <br/>
         <NewsArticleGrid articles={newsArticles}/>
       </main>
+
     </> 
   )
 }

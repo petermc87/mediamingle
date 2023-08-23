@@ -15,15 +15,14 @@ export default function NewsArticleGrid( {articles}: NewsArticleGridProps ) {
         <>
             {articles ?
                 <>            
-                    <Row xs={1} sm={2} x1={3} className="g-4">
+                    <Row xs={1} sm={2} xl={3} xxl={4} className="g-4">
                     {articles.map((article) => {
                         return (
                             <Col key={article.url}>
                                 <NewsArticleEntry article={article}/>
                             </Col>
                         )
-
-                    }
+                        }
                     )}
                     </Row>
                 </>

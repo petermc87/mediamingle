@@ -6,6 +6,10 @@
   padding: 6rem;
   min-height: 100vh;
 }
+.homePage{
+  padding: 2rem;
+  background-color: rgb(244, 244, 244);
+}
 
 .description {
   display: inherit;
