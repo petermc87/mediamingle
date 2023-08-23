@@ -28,9 +28,9 @@ export default async function BreakingNewsPage() {
     <>
       <main>
         <h1>Breaking News</h1>
-        <br/>
-        <br/>
-        <br/>
+          <br/>
+          <br/>
+          <br/>
         <NewsArticleGrid articles={newsArticles}/>
       </main>
     </> 

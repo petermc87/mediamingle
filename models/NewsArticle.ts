@@ -11,3 +11,7 @@ export interface NewsArticle {
     publishedAt: string,
 }
 
+export interface NewsResponse {
+    // NOTE: articles will match the key:value pair in the API data.
+    articles: NewsArticle[]
+}
