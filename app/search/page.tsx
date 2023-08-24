@@ -1,10 +1,9 @@
 "use client"
 import styles from '../page.module.css'
 import newsSearch from "@/actions/searchNews"
-import { NewsArticle, NewsResponse } from "@/models/NewsArticle"
+import { NewsArticle } from "@/models/NewsArticle"
 import { FormEvent, useState } from "react"
 import { Form, Button, Spinner, Row, Col, Alert } from "react-bootstrap"
-import NewsArticleGrid from "../components/NewsArticlesGrid"
 import NewsArticleEntry from "../components/NewsArticleEntry"
 import Head from "next/head"
 
@@ -67,7 +66,6 @@ export default function SearchWebPage(){
                     {isSearching && <Spinner animation="border"/>}
                     {isSearchingError && <p>Oh no! Something went wrong :-(. Please try again</p>}
                     {searchResults?.length === 0 && <p>Nothing found. Please try again</p>}
-                    {/* {searchResults && <NewsArticleGrid articles={search}/>} */}
                     <>
                         {searchResults ?
                             <>            

@@ -1,7 +1,6 @@
 "use client"
 
 import { NewsArticle } from "@/models/NewsArticle";
-import Image from "next/image";
 import { Card } from "react-bootstrap";
 
 // Create an interface that inherits the newsArticle prop types for the article key.

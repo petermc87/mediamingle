@@ -1,7 +1,6 @@
 // TODO: How to get the search query passed in here. --> This is a search feature and not a 
 // dynamic route, therefore you would not use [] route for this.
 import { NewsResponse } from "@/models/NewsArticle"
-// import NEWS_API_KEY from '/.env'
 
 export default async function newsSearch (e: String) {
   
