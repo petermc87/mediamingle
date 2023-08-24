@@ -1,0 +1,14 @@
+.image{
+    object-fit: cover;
+    height: 100%;
+}
+
+.text{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card:hover{
+    opacity: 0.6;
+}
+

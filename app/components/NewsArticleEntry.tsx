@@ -1,7 +1,10 @@
 "use client"
 
 import { NewsArticle } from "@/models/NewsArticle";
+import Image from "next/image";
 import { Card } from "react-bootstrap";
+import placeholderImage from '../../assets/images/placeholder.jpg'
+import styles from './NewsArticle.module.css'
 
 // Create an interface that inherits the newsArticle prop types for the article key.
 interface NewsArticleEntry{
@@ -19,14 +22,18 @@ export default function NewsArticleEntry({article: { title, description, author,
     }
 
     return (
-        <a href={url}>
+        <a className={styles.text} href={url}>
             <Card className="h-100">
-                <Card.Img
-                    variant="top"
-                    src={urlToImage}
+                {/* Using image component from NextJS to render images quicker. */}
+                <Image src={urlToImage || placeholderImage}
+                    alt='Container image'
+                    width={400}
+                    height={200}
+                    // Using the custom styling as part of the Card.Image bootstrap styling.
+                    className={`card-img-top ${styles.image}`}
                 />
-                <Card.Body>
-                    <Card.Title>{title}</Card.Title>
+                <Card.Body style={{cursor:"pointer"}} className={styles.card} >
+                    <Card.Title >{title}</Card.Title>
                     <Card.Text>{description}</Card.Text>
                 </Card.Body>
             </Card>

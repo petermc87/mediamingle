@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import "bootstrap/dist/css/bootstrap.css"
 import Script from 'next/script'
+import NavBar from './components/NavBar'
+import Progress from './components/Progress'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +31,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Progress/>
+        <NavBar/>
+        {children}</body>
         {/* bootstrap JavaScript CDN link */}      
       <Script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -43,6 +48,7 @@ export default function RootLayout({
         crossOrigin="anonymous"
       />
     </html>
+    
     </>
 
   )

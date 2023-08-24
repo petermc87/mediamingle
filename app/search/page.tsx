@@ -1,20 +1,23 @@
 "use client"
+
 import styles from '../page.module.css'
 import newsSearch from "@/actions/searchNews"
 import { NewsArticle } from "@/models/NewsArticle"
 import { FormEvent, useState } from "react"
-import { Form, Button, Spinner, Row, Col, Alert } from "react-bootstrap"
-import NewsArticleEntry from "../components/NewsArticleEntry"
+import { Form, Button, Spinner } from "react-bootstrap"
 import Head from "next/head"
+import NewsArticleGrid from '../components/NewsArticlesGrid'
+import InfoSection from '../components/InfoSection'
 
+const info = "Search will take your query and find the best available match form the live incoming news"
 
 export default function SearchWebPage(){
     // Search results array state. NOTE: The state will map to an array of the newsarticle tupe nothing (null)
-    const [ searchResults, setSearchResults ] = useState<NewsArticle[] | null | void>(null)
+    const [searchResults, setSearchResults] = useState<NewsArticle[] | null | void>(null)
     // Status telling the client if it is searching.
-    const [ isSearching, setIsSearching ] = useState(false)
+    const [isSearching, setIsSearching] = useState(false)
     // Error
-    const [ isSearchingError, setIsSearchingError ] = useState(false)
+    const [isSearchingError, setIsSearchingError] = useState(false)
 
 
     // Event Handler to pass in the query. NOTE: The standard type being passed in for a single element.
@@ -48,10 +51,7 @@ export default function SearchWebPage(){
             </Head>
             <main className={styles.homePage}>
                 <h1>Search News</h1>
-                <Alert>
-                    This page uses <strong>client-side data fetching</strong> to show fresh data for every search.
-                    Requests are handled by our backend via <strong>API routes</strong>
-                </Alert>
+                <InfoSection info={info}/>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className='mb-3' controlId="search-input">
                         <Form.Label>Search query</Form.Label>
@@ -67,20 +67,7 @@ export default function SearchWebPage(){
                     {isSearchingError && <p>Oh no! Something went wrong :-(. Please try again</p>}
                     {searchResults?.length === 0 && <p>Nothing found. Please try again</p>}
                     <>
-                        {searchResults ?
-                            <>            
-                                <Row xs={1} sm={2} xl={4} xxl={4} className="g-4">
-                                    {searchResults.map((article) => {
-                                        return (
-                                            <Col key={article.url}>
-                                                <NewsArticleEntry article={article}/>
-                                            </Col>
-                                        )
-                                    }
-                                    )}
-                                </Row>
-                            </>
-                        : ''}
+                        <NewsArticleGrid articles={searchResults} />
                     </>
                 </div>
             </main>

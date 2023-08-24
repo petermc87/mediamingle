@@ -2,6 +2,7 @@ import styles from './page.module.css'
 import { NewsArticle } from '@/models/NewsArticle'
 import type { Metadata } from 'next'
 import NewsArticleGrid from './components/NewsArticlesGrid'
+import NavBar from './components/NavBar'
 
 // Metadata for this page.
 export const metadata: Metadata ={ 
