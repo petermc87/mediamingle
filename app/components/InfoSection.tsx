@@ -1,13 +1,11 @@
-"use client"
+"use client";
 
-import { Alert } from "react-bootstrap"
+import { Alert } from "react-bootstrap";
 
-interface InfoProps{
-    info: string,
+interface InfoProps {
+  info: string;
 }
 
-export default function InfoSection ( {info}: InfoProps ){
-    return(
-        <Alert>{info}</Alert>
-    )
+export default function InfoSection({ info }: InfoProps) {
+  return <Alert>{info}</Alert>;
 }

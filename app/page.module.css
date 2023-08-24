@@ -6,7 +6,7 @@
   padding: 6rem;
   min-height: 100vh;
 }
-.homePage{
+.homePage {
   padding: 2rem;
   background-color: rgb(244, 244, 244);
 }
@@ -101,7 +101,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);

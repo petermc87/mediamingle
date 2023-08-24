@@ -1,3 +1,32 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:storybook/recommended"
+  ],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
+    "no-unused-vars": [
+      1,
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      // ESLint will treat these as storybook files.
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"]
+      // "rules": {
+      //   // This is overriding a rule.
+      //   "storybook/hierarchy-seperator": "error"
+      // }
+    }
+  ]
 }
