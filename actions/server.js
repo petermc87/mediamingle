@@ -13,9 +13,9 @@ app.use(cors());
 // This will be the req.body
 app.use(express.json());
 
-//--> Tutorial way of doing things <--//
 app.get("/api/search/:id", async (req, res) => {
-  // The fetch request is being instigated but the API is coming back as invalid.
+  // Pass in a third parameter from the front end to add to the API key.
+  // This will be the req.params.id.
   try {
     const response = await fetch(
       `https://newsapi.org/v2/everything?q=${req.params.id}&apiKey=${process.env.NEXT_PUBLIC_KEY}`

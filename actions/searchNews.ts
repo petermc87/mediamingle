@@ -21,9 +21,17 @@ export default async function newsSearch(e: String) {
     //   }
     // );
 
-    //--> Fetching using express. <--//
+    // //--> Fetching using express. - Dev <--//
+    // const response = await fetch(
+    //   `https://localhost:8080/search/${searchQuery}`,
+    //   {
+    //     cache: "no-cache",
+    //   }
+    // );
+
+    //--> Fetching using express. - Production <--//
     const response = await fetch(
-      `http://localhost:8080/api/search/${searchQuery}`,
+      `https://mediamingle.vercel.app/search/${searchQuery}`,
       {
         cache: "no-cache",
       }
