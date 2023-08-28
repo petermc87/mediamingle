@@ -13,6 +13,7 @@ export default async function newsSearch(e: String) {
 
   // Fetch via a search query
   try {
+    //--> Fetching using just Next. <--//
     // const response = await fetch(
     //   `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${process.env.NEXT_PUBLIC_KEY}`,
     //   {
@@ -20,9 +21,13 @@ export default async function newsSearch(e: String) {
     //   }
     // );
 
-    const response = await fetch(`http://localhost:8080/api/search`, {
-      cache: "no-cache",
-    });
+    //--> Fetching using express. <--//
+    const response = await fetch(
+      `http://localhost:8080/api/search/${searchQuery}`,
+      {
+        cache: "no-cache",
+      }
+    );
 
     // We get back an array that will contain the news article array.
     const newsResponse: NewsResponse = await response.json();

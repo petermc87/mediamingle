@@ -14,11 +14,11 @@ app.use(cors());
 app.use(express.json());
 
 //--> Tutorial way of doing things <--//
-app.get("/api/search", async (req, res) => {
+app.get("/api/search/:id", async (req, res) => {
   // The fetch request is being instigated but the API is coming back as invalid.
   try {
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=people&apiKey=${process.env.NEXT_PUBLIC_KEY}`
+      `https://newsapi.org/v2/everything?q=${req.params.id}&apiKey=${process.env.NEXT_PUBLIC_KEY}`
     );
     const data = await response.json();
     res.json(data);
