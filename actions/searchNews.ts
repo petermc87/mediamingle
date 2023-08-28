@@ -13,12 +13,16 @@ export default async function newsSearch(e: String) {
 
   // Fetch via a search query
   try {
-    const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${process.env.NEXT_PUBLIC_KEY}`,
-      {
-        cache: "no-cache",
-      }
-    );
+    // const response = await fetch(
+    //   `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${process.env.NEXT_PUBLIC_KEY}`,
+    //   {
+    //     cache: "no-cache",
+    //   }
+    // );
+
+    const response = await fetch(`http://localhost:8080/api/search`, {
+      cache: "no-cache",
+    });
 
     // We get back an array that will contain the news article array.
     const newsResponse: NewsResponse = await response.json();

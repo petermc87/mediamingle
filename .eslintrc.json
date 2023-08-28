@@ -23,10 +23,6 @@
     {
       // ESLint will treat these as storybook files.
       "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"]
-      // "rules": {
-      //   // This is overriding a rule.
-      //   "storybook/hierarchy-seperator": "error"
-      // }
     }
   ]
 }
