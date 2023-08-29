@@ -18,7 +18,7 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, "build")));
 
 //--> Tutorial way of doing things <--//
-app.get("/search/:id", async (req, res) => {
+app.get("/api/search/:id", async (req, res) => {
   // The fetch request is being instigated but the API is coming back as invalid.
   try {
     const response = await fetch(
