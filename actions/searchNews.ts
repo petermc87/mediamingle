@@ -15,7 +15,7 @@ export default async function newsSearch(e: String) {
   try {
     //--> Fetching using express. <--//
     const response = await fetch(
-      `https://mediamingle.vercel.app/api/search/${searchQuery}`,
+      `https://mediamingle.vercel.app/search/${searchQuery}`,
       {
         cache: "no-cache",
       }
