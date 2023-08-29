@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const cors = require("cors");
-const PORT = 5001;
+const PORT = 5000;
 
 // Using the dotenv package so that the environment variables can be used.
 dotenv.config({ path: "../.env.local" });
