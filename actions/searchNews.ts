@@ -14,12 +14,9 @@ export default async function newsSearch(e: String) {
   // Fetch via a search query
   try {
     //--> Fetching using express. <--//
-    const response = await fetch(
-      `http://localhost:5001/api/search/${searchQuery}`,
-      {
-        cache: "no-cache",
-      }
-    );
+    const response = await fetch(`/api/search/${searchQuery}`, {
+      cache: "no-cache",
+    });
 
     // We get back an array that will contain the news article array.
     const newsResponse: NewsResponse = await response.json();
