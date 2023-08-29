@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const cors = require("cors");
-const PORT = 8080;
+const PORT = 5000;
 
 // Using the dotenv package so that the environment variables can be used.
 dotenv.config({ path: "../.env.local" });
@@ -13,9 +13,13 @@ app.use(cors());
 // This will be the req.body
 app.use(express.json());
 
+//--- FROM PREVIOUS APPS ---//
+// app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
+// app.use(express.static(path.join(__dirname, "build")));
+
+//--> Tutorial way of doing things <--//
 app.get("/api/search/:id", async (req, res) => {
-  // Pass in a third parameter from the front end to add to the API key.
-  // This will be the req.params.id.
+  // The fetch request is being instigated but the API is coming back as invalid.
   try {
     const response = await fetch(
       `https://newsapi.org/v2/everything?q=${req.params.id}&apiKey=${process.env.NEXT_PUBLIC_KEY}`

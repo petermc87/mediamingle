@@ -13,25 +13,9 @@ export default async function newsSearch(e: String) {
 
   // Fetch via a search query
   try {
-    //--> Fetching using just Next. <--//
-    // const response = await fetch(
-    //   `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${process.env.NEXT_PUBLIC_KEY}`,
-    //   {
-    //     cache: "no-cache",
-    //   }
-    // );
-
-    // //--> Fetching using express. - Dev <--//
-    // const response = await fetch(
-    //   `https://localhost:8080/search/${searchQuery}`,
-    //   {
-    //     cache: "no-cache",
-    //   }
-    // );
-
-    //--> Fetching using express. - Production <--//
+    //--> Fetching using express. <--//
     const response = await fetch(
-      `https://mediamingle.vercel.app/api/search/${searchQuery}`,
+      `http://localhost:5000/api/search/${searchQuery}`,
       {
         cache: "no-cache",
       }
@@ -40,6 +24,7 @@ export default async function newsSearch(e: String) {
     // We get back an array that will contain the news article array.
     const newsResponse: NewsResponse = await response.json();
 
+    console.log(newsResponse);
     // The articles array is destructured into its parts defined in props.
     const searchedArticles: NewsArticle[] = newsResponse.articles;
 
