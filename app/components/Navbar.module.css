@@ -1,5 +1,17 @@
-@media only screen and (min-width: 570px) {
-  .nav {
+/* For mobile navbar */
+@media only screen and (max-width: 574.7px) {
+  .container {
+    display: none;
+  }
+}
+
+/* For the desktop navbar */
+@media only screen and (min-width: 574.7px) {
+  .navbar {
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+  }
+  .hamburgertoggle {
     display: none;
   }
 }
