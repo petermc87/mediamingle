@@ -8,6 +8,6 @@ module.exports = {
         hostname: "**",
       },
     ],
-    domains: ["blogs.bl.uk"],
+    domains: ["blogs.bl.uk", "www.dol.gov"],
   },
 };

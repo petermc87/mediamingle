@@ -65,7 +65,7 @@ export default function SearchWebPage() {
             {isSearching ? "Searching..." : "Search"}
           </Button>
         </Form>
-        <div className="d-flex flex-colimn align-items-center">
+        <div className="d-flex flex-column align-items-center">
           {isSearching && <Spinner animation="border" />}
           {isSearchingError && (
             <p>Oh no! Something went wrong :-(. Please try again</p>

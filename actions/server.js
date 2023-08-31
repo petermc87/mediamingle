@@ -31,9 +31,6 @@ app.get("/api/search/:id", async (req, res) => {
   }
 });
 
-// Linking url with the route.
-app.use("/api/search", require("./routes"));
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

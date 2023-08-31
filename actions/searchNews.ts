@@ -3,6 +3,7 @@
 import { NewsArticle, NewsResponse } from "@/models/NewsArticle";
 
 export default async function newsSearch(e: String) {
+  console.log(process.env.BASE_URL);
   // Getting the query by field name.
   const searchQuery = e;
 
@@ -14,9 +15,12 @@ export default async function newsSearch(e: String) {
   // Fetch via a search query
   try {
     //--> Fetching using express. <--//
-    const response = await fetch(`${process.env.BASE_URL}/${searchQuery}`, {
-      cache: "no-cache",
-    });
+    const response = await fetch(
+      `http://localhost:5000/api/search/${searchQuery}`,
+      {
+        cache: "no-cache",
+      }
+    );
 
     // We get back an array that will contain the news article array.
     const newsResponse: NewsResponse = await response.json();
