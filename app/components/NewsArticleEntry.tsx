@@ -13,7 +13,7 @@ interface NewsArticleEntry {
 
 // Export the component with the destructured props and the assigned types.
 export default function NewsArticleEntry({
-  article: { title, description, author, publishedAt, urlToImage, url },
+  article: { title, description, urlToImage, url },
 }: NewsArticleEntry) {
   // Checking if the image is a url or not.
   if (urlToImage?.startsWith("https://") || urlToImage?.startsWith("http://")) {

@@ -1,5 +1,4 @@
 "use client";
-import "bootstrap/js/src/collapse.js";
 import Link from "next/link";
 import NextNProgress from "nextjs-progressbar";
 import { useState } from "react";
