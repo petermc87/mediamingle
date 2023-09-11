@@ -33,6 +33,7 @@ export default function NewsArticleEntry({
           height={200}
           // Using the custom styling as part of the Card.Image bootstrap styling.
           className={`card-img-top ${styles.image}`}
+          unoptimized
         />
         <Card.Body style={{ cursor: "pointer" }} className={styles.card}>
           <Card.Title>{title}</Card.Title>
